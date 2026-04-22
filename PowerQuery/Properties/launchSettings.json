@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "PowerQuery": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\Users\\TaaviOjaveer\\Documents\\pq\\Test.xlsx\""
+    },
+    "Profile 1": {
+      "commandName": "Executable",
+      "commandLineArgs": "\"C:\\Users\\TaaviOjaveer\\Documents\\pq\\Test.xlsx\""
+    }
+  }
+}

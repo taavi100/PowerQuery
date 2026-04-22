@@ -1,0 +1,59 @@
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio cache/options directory
+.vs/
+
+# Rider / ReSharper
+.idea/
+*.DotSettings.user
+
+# Build output folders
+Debug/
+Release/
+x64/
+x86/
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+**/packages/*
+
+# .NET Core / SDK artifacts
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Logs
+*.log
+
+# Windows thumbnail cache
+Thumbs.db
+
+# macOS
+.DS_Store
+
+# Visual Studio Code (optional)
+.vscode/
+
+# Test results
+TestResults/
+*.trx
+
+# Publish output
+publish/
+*.publishsettings
+
+# ASP.NET Core scaffolding (if present)
+ScaffoldingReadMe.txt
+
+# EF Core migrations (optional - only ignore if you don't want them tracked)
+# Migrations/
