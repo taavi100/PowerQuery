@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using System.Text;
-using System.Xml.Serialization;
 using System.IO.Compression;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace PowerQuery
 {
@@ -53,22 +54,54 @@ namespace PowerQuery
             foreach (var row in WorkSheet.sheetData)
             {
                 var dataRow = new List<object>();
+                int currentColumnIndex = 0;
+
                 foreach (var cell in row.c)
                 {
+                    // Get column index from cell reference (e.g. "C1" → 2)
+                    int columnIndex = GetColumnIndex(cell.r);
+
+                    // Fill missing columns with empty values
+                    while (currentColumnIndex < columnIndex)
+                    {
+                        dataRow.Add(string.Empty);
+                        currentColumnIndex++;
+                    }
+
+                    // Read cell value
                     if (cell.t == "s")
                     {
                         int index = (int)cell.v;
-                        string value = SharedStrings.si[index].t;
+                        string value = SharedStrings.si[index].t.Value;
                         dataRow.Add(value);
                     }
                     else
                     {
                         dataRow.Add(cell.v);
                     }
+
+                    currentColumnIndex++;
                 }
+
                 data.Add(dataRow);
             }
             return data;
-        }   
+        }
+        private int GetColumnIndex(string cellReference)
+        {
+            // Extract letters from "A1", "BC23" → "A", "BC"
+            string columnPart = new string(cellReference
+                .TakeWhile(c => char.IsLetter(c))
+                .ToArray());
+
+            int columnIndex = 0;
+            foreach (char c in columnPart)
+            {
+                columnIndex *= 26;
+                columnIndex += (c - 'A' + 1);
+            }
+
+            return columnIndex - 1; // zero-based index
+        }
     }
 }

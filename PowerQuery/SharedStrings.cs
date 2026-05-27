@@ -12,13 +12,12 @@ namespace PowerQuery
     [System.Xml.Serialization.XmlRootAttribute("sst", Namespace = "http://schemas.openxmlformats.org/spreadsheetml/2006/main", IsNullable = false)]
     public partial class SharedStrings
     {
-        public SharedStrings() { }
 
         private sstSI[] siField;
 
-        private byte countField;
+        private ushort countField;
 
-        private byte uniqueCountField;
+        private ushort uniqueCountField;
 
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("si")]
@@ -36,7 +35,7 @@ namespace PowerQuery
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte count
+        public ushort count
         {
             get
             {
@@ -50,7 +49,7 @@ namespace PowerQuery
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte uniqueCount
+        public ushort uniqueCount
         {
             get
             {
@@ -69,12 +68,11 @@ namespace PowerQuery
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://schemas.openxmlformats.org/spreadsheetml/2006/main")]
     public partial class sstSI
     {
-        public sstSI() { }
 
-        private string tField;
+        private sstSIT tField;
 
         /// <remarks/>
-        public string t
+        public sstSIT t
         {
             get
             {
@@ -83,6 +81,46 @@ namespace PowerQuery
             set
             {
                 this.tField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.SerializableAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://schemas.openxmlformats.org/spreadsheetml/2006/main")]
+    public partial class sstSIT
+    {
+
+        private string spaceField;
+
+        private string valueField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified, Namespace = "http://www.w3.org/XML/1998/namespace")]
+        public string space
+        {
+            get
+            {
+                return this.spaceField;
+            }
+            set
+            {
+                this.spaceField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value
+        {
+            get
+            {
+                return this.valueField;
+            }
+            set
+            {
+                this.valueField = value;
             }
         }
     }

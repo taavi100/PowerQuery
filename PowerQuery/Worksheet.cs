@@ -27,13 +27,9 @@ namespace PowerQuery
 
         private worksheetPageMargins pageMarginsField;
 
-        private worksheetPageSetup pageSetupField;
-
         private string ignorableField;
 
         private string uidField;
-
-        public Worksheet() { }
 
         /// <remarks/>
         public worksheetDimension dimension
@@ -115,19 +111,6 @@ namespace PowerQuery
         }
 
         /// <remarks/>
-        public worksheetPageSetup pageSetup
-        {
-            get
-            {
-                return this.pageSetupField;
-            }
-            set
-            {
-                this.pageSetupField = value;
-            }
-        }
-
-        /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified, Namespace = "http://schemas.openxmlformats.org/markup-compatibility/2006")]
         public string Ignorable
         {
@@ -165,7 +148,6 @@ namespace PowerQuery
 
         private string refField;
 
-        public worksheetDimension() { }
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
         public string @ref
@@ -189,7 +171,6 @@ namespace PowerQuery
     {
 
         private worksheetSheetViewsSheetView sheetViewField;
-        public worksheetSheetViews() { }
 
         /// <remarks/>
         public worksheetSheetViewsSheetView sheetView
@@ -217,7 +198,7 @@ namespace PowerQuery
         private byte tabSelectedField;
 
         private byte workbookViewIdField;
-        public worksheetSheetViewsSheetView() { }
+
         /// <remarks/>
         public worksheetSheetViewsSheetViewSelection selection
         {
@@ -271,8 +252,6 @@ namespace PowerQuery
 
         private string sqrefField;
 
-        public worksheetSheetViewsSheetViewSelection() { }
-
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
         public string activeCell
@@ -313,8 +292,6 @@ namespace PowerQuery
 
         private decimal dyDescentField;
 
-        public worksheetSheetFormatPr() { }
-
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
         public byte defaultRowHeight
@@ -353,8 +330,6 @@ namespace PowerQuery
 
         private worksheetColsCol colField;
 
-        public worksheetCols() { }
-
         /// <remarks/>
         public worksheetColsCol col
         {
@@ -382,10 +357,7 @@ namespace PowerQuery
 
         private decimal widthField;
 
-        private byte bestFitField;
-
         private byte customWidthField;
-        public worksheetColsCol() { }
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -431,20 +403,6 @@ namespace PowerQuery
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte bestFit
-        {
-            get
-            {
-                return this.bestFitField;
-            }
-            set
-            {
-                this.bestFitField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
         public byte customWidth
         {
             get
@@ -467,13 +425,11 @@ namespace PowerQuery
 
         private worksheetRowC[] cField;
 
-        private byte rField;
+        private ushort rField;
 
         private string spansField;
 
         private decimal dyDescentField;
-
-        public worksheetRow() { }
 
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("c")]
@@ -491,7 +447,7 @@ namespace PowerQuery
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public byte r
+        public ushort r
         {
             get
             {
@@ -539,20 +495,16 @@ namespace PowerQuery
     public partial class worksheetRowC
     {
 
-        private decimal vField;
+        private short vField;
 
         private string rField;
 
-        private string tField;
-
         private byte sField;
 
-        private bool sFieldSpecified;
-
-        public worksheetRowC() { }
+        private string tField;
 
         /// <remarks/>
-        public decimal v
+        public short v
         {
             get
             {
@@ -580,20 +532,6 @@ namespace PowerQuery
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string t
-        {
-            get
-            {
-                return this.tField;
-            }
-            set
-            {
-                this.tField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
         public byte s
         {
             get
@@ -607,16 +545,16 @@ namespace PowerQuery
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool sSpecified
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string t
         {
             get
             {
-                return this.sFieldSpecified;
+                return this.tField;
             }
             set
             {
-                this.sFieldSpecified = value;
+                this.tField = value;
             }
         }
     }
@@ -639,7 +577,6 @@ namespace PowerQuery
         private decimal headerField;
 
         private decimal footerField;
-        public worksheetPageMargins() { }
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -722,46 +659,6 @@ namespace PowerQuery
             set
             {
                 this.footerField = value;
-            }
-        }
-    }
-
-    /// <remarks/>
-    [System.SerializableAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://schemas.openxmlformats.org/spreadsheetml/2006/main")]
-    public partial class worksheetPageSetup
-    {
-
-        private string orientationField;
-
-        private string idField;
-        public worksheetPageSetup() { }
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string orientation
-        {
-            get
-            {
-                return this.orientationField;
-            }
-            set
-            {
-                this.orientationField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified, Namespace = "http://schemas.openxmlformats.org/officeDocument/2006/relationships")]
-        public string id
-        {
-            get
-            {
-                return this.idField;
-            }
-            set
-            {
-                this.idField = value;
             }
         }
     }
